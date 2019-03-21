@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- indico na tag html qual a lingua do site e pais origem para facilitar nos sites de buscas-->
+<head>
+    <meta charset="UTF-8" /> <!-- indicacao de que se trata de lingua latina devido as pontuações-->
+    <title>Tudo sobre Google Glass</title>
+    <!--exemplo de inserção de estilo no html com css-->
+    <link rel="stylesheet" type="text/css" href="_css/estilo.css"/> <!--href = hyper text reference - chamar arquivo de fora -->
+    <link rel="stylesheet" type="text/css" href="_css/form.css"/>
+    <script language="javascript" src="_javascript/funcoes.js"></script>
+    <!--abaixo = qtd vai pegar o conteudo da cauixa de testo que tem a qtdade de id cQtd - convertendo valor entre parenteses de texto para numero | criado variavel tot e após codigo para mostrar na caixa total a pagar o calculo realizado pelo id - .value (recebe) tot (variavel do calculo)-->
+    <script>
+        function calc_total() {
+            var qtd = parseInt(document.getElementById('cQtd').value);
+            tot = qtd * 1500;
+            document.getElementById('cTot').value = tot;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="interface">
+        
+        <header id="cabecalho"> <!-- cabecalho-->
+            <hgroup> <!-- agrupando os titulos | nao faz diferença visual apenas semantica -->
+                <h1>Google Glass</h1>
+                <h2>A revolução do Google está chegando</h2>
+            </hgroup>
+
+            <img id="icone" src="_imagens/glass-oculos-preto-peq.png"/>
+            <nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul>
+                    <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="index.html">Home</a></li> <!--Sempre que mover o mouse sobre o home ele vai modificar o icone-->
+                    <li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                    <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+                    <li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+                    <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+                </ul>
+            </nav>
+        </header> <!-- encerra cabecalho-->
+
+        <section id="corpo-full">
+                <article id="noticia-principal">
+                <header id="cabecalho-artigo"> <!--se trata de um cabeçalho do artigo || voce pode criar header como cabeçalho do site, de artigo, de secao-->
+                <hgroup> <!-- agrupar os títulos-->
+                    <h3>Fale Conosco > Contato</h3> <!--  &nbsp;  - non break spaces -> atribui espaço lateral, na mesma linha-->
+                    <h1>Formulário de Contato</h1>
+                    <h2>por Gustavo Guanabara</h2>
+                    <h3 class="direita">Atualizado em 01/Maio/2013</h3>
+                </hgroup>
+                </header>
+
+                <!--metodos -> metodo get (mais veloz - menos seguro = pega todos os dados do form e coloca no fim da url assim que clicar em enviar || post lento - mais seguro = pega os dados e os envia por pacotes dentro das solicitações || action para onde os dados serão enviados ) -->
+                <form method="post" id="fContato" action="mailto:renanjodas@gmail.com" oninput="calc_total();"> <!--oninput (javascript = quando digitar qualquer coisa vai disparar um procedimento-->
+                <fieldset id="usuario"><legend>Identificação do Usuário</legend> <!--fieldset = conjunto de campos | legend = titulo da borda do fieldset-->
+                    <!--input pode ser util. para caixa de texto, botoes, etc. importante: name id | parametros: size(tamanho) limitando com o max length (30 caracteres em uma caixa que permite mostrar 20 | placeholder = dica de inserção de dados-->
+                    <p><label for="cNome">Nome:</label> <input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo" /></p> 
+                    <p><label for="cSenha">Senha:</label> <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 dígitos" /></p>
+                    <p><label for="cMail">E-mail: <input type="email" name="tMail" id="cMail" size="20" maxlength="40"></p>
+                    <!--Para que o type radio não permita seleção multipla simultanea, o name deve ser o mesmo para ambas opções || labels e etiquetas fazem referencia a objetos ou texto ao ID, através do for-->
+                    <fieldset id="sexo"><legend>Sexo:</legend>
+                        <input type="radio" name="tSexo" id="cMasc" checked> <label for="cMasc">Masculino</label><br>
+                        <input type="radio" name="tSexo" id="cFem"> <label for="cFem">Feminino</label></fieldset>
+                    <p>Data de Nascimento: <input type="date" name="tNasc" id="cNasc"></p>
+                </fieldset>
+
+                <fieldset id="endereco"><legend>Endereço do Usuário</legend>
+                    <p><label for="cRua">Logradouro:</label> <input type="text" name="tRua" id="cRua" size="20" maxlength="80" placeholder="Rua, Av, Trav."><p>
+                    <p><label for="cNum">Número: <input type="number" name="tNum" id="cNum" min="0" max="9999"><p>
+                    <p><label for="cEst">Estado: </label>
+                        <select name="tEst" id="cEst">
+                            <optgroup label="Região Sudeste"> <!--Grupo de opções-->
+                                <option value="RJ">Rio de Janeiro</option> <!--Quando quiser que seja enviado valores no formulario ao inves do nome, opte por value-->
+                                <option value="SP"selected>São Paulo</option>
+                                <option value="MG">Minas Gerais</option>
+                            </optgroup>
+                            <optgroup label="Região Sul">
+                                <option value="PR">Paraná</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                            </optgroup>
+                        </select></p>
+                    <p><label for="cCid">Cidade: </label>
+                    <input type="text" name="tCid" id="cCid" maxlength="40" size="20" placeholder="Sua Cidade" list="cidades" /></p>
+                    <datalist id="cidades"><!--novo recurso- autocomplemento parametro list="cidades"-->
+                        <option value="Rio de Janeiro"></option>
+                        <option value="Nova Iguaçu"></option>
+                        <option value="Niterói"></option>
+                    </datalist>
+                </fieldset> 
+                <fieldset id="mensagem"><legend>Mensagem do Usuário</legend>
+                    <p><label for="cUrg">Grau de Urgência: </label>
+                        Mín <input type="range" name="tUrg" id="cUrg" min="0" max="10" step="1" /> Máx</p> <!--step - quantidade de 'casas' que o range vai saltar-->
+                    <p><label for="cMsg">Mensagem: </label>
+                        <textarea name="tMsg" id="Msg" cols="35" rows="5" placeholder="Deixe aqui sua mensagem!"></textarea></p>
+                </fieldset> 
+
+                <fieldset id="pedido"><legend>Quero um Google Glass</legend>
+                    <p><input type="checkbox" name="tPed" id="cPed" checked="" />
+                        <label for="cPed">Gostaria de adquirir um Google Glass quando disponível </label></p>
+                    <p><label for="cCor">Cor: </label>
+                        <input type="color" name="tCor" id="cCor" value="#0000FF"></p>
+                    <p><label for="cQtd">Quantidade: </label>
+                        <input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0" /></p>
+                    <p><label for="cTot">Preço Total: R$ </label>
+                        <input type="text" name="tTot" id="cTot" placeholder="Total a Pagar" readonly /></p> <!--Parametro readonly, bloqueia para nao aceitar textos-->
+                </fieldset> 
+
+                <input type="image" src="_imagens/botao-enviar.png" name="tEnviar" /> <!--ou  type="submit" value"Enviar"-->
+                </form>
+
+        <footer id="rodape">
+            <p>Copyright &copy; 2013 - by Gustavo Guanabara | Edited by Renan Jodas <br/>
+            <a href="https://www.linkedin.com/in/renanjodas" target="_blank">Linkedin</a> | 
+            <a href="https://github.com/renanjodas" target="_blank">Github</a></p>
+        </footer>
+    </div>
+</body>
+</html>

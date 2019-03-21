@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Teste JavaScript</title>
+	<meta charset="utf-8">
+	<!--dentro do script criada uma função - sempre colocar em uma função parenteses ()-> indica parâmetro | {}-> códigos-->
+	<!--criado um alerta para informar que a lampada acendeu-->
+	<!-- função é um conjunto de comandos ou tecnicamente uma rotina que vai acontecer caso dispara essa sequencia - neste caso vai mostrar uma mensagem assim que o usuario passar o mouse em cima da lampada- atraves de algumas chamadas que são o "on"-->
+	<!--Inserir o comando que altere a imagem do html de lampagada apagada para o de lampada acesa-->
+	<!--para alterar um objeto primeiro, precisa dar uma identificação ao mesmo no html-->
+	<!-- Para manipular objeto através de uma chamada - document.getElementById -> fazendo uma referencia ao elemento por seu identificador-->
+	<!-- Em seguida vai alterar o src dele, entao: document.getElementById("id").src="caminho da imagem" -->
+	<!-- Neste caso a lampada apenas acende e não apaga quando o mouse é retirado -->
+	<!-- Para apagar, insere outra função e indica no html para chamar função -->
+	<script type="text/javascript">
+		function acendeLampada() {
+			document.getElementById("luz").src = "../_imagens/lampada-acesa.jpg";
+		}
+		function apagaLampada() {
+			document.getElementById("luz").src = "../_imagens/lampada-apagada.jpg";
+		}
+		function quebraLampada() {
+			document.getElementById("luz").src = "../_imagens/lampada-quebrada.jpg";
+		}
+	</script>
+</head>
+<body>
+	<h1>Acenda a lâmpada</h1>
+	<img src="../_imagens/lampada-apagada.jpg" id="luz" onmousemove="acendeLampada()" onmouseout="apagaLampada()" onclick="quebraLampada()" /> <!--quando passar o mouse sob a imagem vai chamar o alerta acende lampada e acender a lampada | em seguida chamada onmouseout para quando o mouse sair de cima do objeto | QUEBRA DE LAMPADA QUANDO CLICADO -->
+</body>
+</html>
