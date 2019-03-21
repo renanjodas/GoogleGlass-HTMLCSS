@@ -4,9 +4,9 @@
 	<meta charset="UTF-8" /> <!-- indicacao de que se trata de lingua latina devido as pontuações-->
 	<title>Tudo sobre Google Glass</title>
 	<!--exemplo de inserção de estilo no html com css-->
-	<link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
-	<link rel="stylesheet" type="text/css" href="_css/media.css"/> <!--href = hyper text reference - chamar arquivo de fora -->
-	<script language="javascript" src="_javascript/funcoes.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+	<link rel="stylesheet" type="text/css" href="css/media.css"/> <!--href = hyper text reference - chamar arquivo de fora -->
+	<script language="javascript" src="javascript/funcoes.js"></script>
 </head>
 
 <body>
@@ -18,15 +18,15 @@
 				<h2>A revolução do Google está chegando</h2>
 			</hgroup>
 
-			<img id="icone" src="_imagens/multimidia.png"/>
+			<img id="icone" src="imagens/multimidia.png"/>
 			<nav id="menu">
 				<h1>Menu Principal</h1>
 				<ul>
-					<li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/multimidia.png')"><a href="index.html">Home</a></li> <!--Sempre que mover o mouse sobre o home ele vai modificar o icone-->
-					<li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/multimidia.png')"><a href="specs.html">Especificações</a></li>
-					<li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/multimidia.png')"><a href="fotos.html">Fotos</a></li>
-					<li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/multimidia.png')"><a href="multimidia.html">Multimídia</a></li>
-					<li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/multimidia.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+					<li onmouseover="mudaFoto('imagens/home.png')" onmouseout="mudaFoto('imagens/multimidia.png')"><a href="index.html">Home</a></li> <!--Sempre que mover o mouse sobre o home ele vai modificar o icone-->
+					<li onmouseover="mudaFoto('imagens/especificacoes.png')" onmouseout="mudaFoto('imagens/multimidia.png')"><a href="specs.html">Especificações</a></li>
+					<li onmouseover="mudaFoto('imagens/fotos.png')" onmouseout="mudaFoto('imagens/multimidia.png')"><a href="fotos.html">Fotos</a></li>
+					<li onmouseover="mudaFoto('imagens/multimidia.png')" onmouseout="mudaFoto('imagens/multimidia.png')"><a href="multimidia.html">Multimídia</a></li>
+					<li onmouseover="mudaFoto('imagens/contato.png')" onmouseout="mudaFoto('imagens/multimidia.png')"><a href="fale-conosco.html">Fale conosco</a></li>
 				</ul>
 			</nav>
 		</header> <!-- encerra cabecalho-->
@@ -44,14 +44,14 @@
 
 				<div id="tv-radio">
 					<audio id="musica" controls="controls"> <!--aplica icone player de controle de audio na pagina | paa cada navegador abre um diferente| para conversão dos formatos de audios para todos os navegadores aceitarem - sugestão mirovideo converter-->
-						<source src="_media/2009-lovers-carvings-bibio.mp3" type="audio/mpeg"/>
-						<source src="_media/2009-lovers-carvings-bibio.ogg" type="audio/ogg"/>
+						<source src="media/2009-lovers-carvings-bibio.mp3" type="audio/mpeg"/>
+						<source src="media/2009-lovers-carvings-bibio.ogg" type="audio/ogg"/>
 						Desculpe, mas não foi possível carregar o áudio! <!--A mensagem somente aparecerá caso nenhum dos formatos sejam compativeis com o navegador-->
 					</audio>
-					<video id="filme" controls="controls" poster="_imagens/video-mini03.jpg"> <!--poster para ficar atras do player de video para complementar e nao desfigurar-->
-						<source src="_media/getting-started.mp4" type="video/mp4"/>
-						<source src="_media/getting-started.ogv" type="video/ogg"/>
-						<source src="_media/getting-started.webm" type="video/webm"/>
+					<video id="filme" controls="controls" poster="imagens/video-mini03.jpg"> <!--poster para ficar atras do player de video para complementar e nao desfigurar-->
+						<source src="media/getting-started.mp4" type="video/mp4"/>
+						<source src="media/getting-started.ogv" type="video/ogg"/>
+						<source src="media/getting-started.webm" type="video/webm"/>
 						Desculpe, mas não foi possível carregar o vídeo!
 					</video>
 				</div>

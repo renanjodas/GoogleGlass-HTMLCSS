@@ -1,0 +1,260 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@font-face{  /*definir fonte propria - conforme pasta _fonts || o interessante é que o usuario que esta acessando o site não precisa ter esta fonte instalada no computador || baixar no google.com/fonts*/
+	font-family: 'FonteLogo';
+	src: url("../fonts/bubblegum-sans-regular.otf");
+}
+
+body{
+	font-family: Arial, sans-serif;
+	background-color: #dddddd;
+	color: rgba(0,0,0,1);
+}
+
+div#interface {
+	width: 900px; /*restringe o site (conteudo body) a esta configuração exceto o que estiver em posição absoluta (ex.: menu)*/
+	background-color: #ffffff;
+	margin: -20px auto 0px auto;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5); /*deslocamento lateral || deslocamento vertical || espalhamento || cor*/
+	padding: 10px; /*espaçamento interno entre conteudo e margem */
+}
+
+p{
+	text-align: justify;
+	text-indent: 50px;
+}
+
+a {   /*formatação generica para todo conteudo de link da pagina*/
+	color: #606060;
+	text-decoration: none;
+}
+
+a:hover { /*formatação quando o mouse estiver sob o link*/
+	text-decoration: underline;
+}
+
+header#cabecalho img#icone{
+	position: absolute;
+	left: 780px;
+	top: 70px;
+}
+
+header#cabecalho {
+	border-bottom: 1px #606060 solid; /*definir linha de divisão (borda do header) - largura || cor || formato (solid - dashed(tracejado) - dotted(pontilhado) - double)*/
+	height: 150px;
+	background: url("../imagens/glass-logo-peq.jpg") no-repeat 0px 80px; /*carregar imagem no CSS - no exemplo ao lado, imagem pequena, ele replicou a imagem - por isso a utilização do parametro "no-repeat", porem esta posicionado atras - para isso o parametro 1º"deslocamento lateral (0px) e 2º"deslocamento vertical" (100px)*/
+}
+
+header#cabecalho h1 {
+	font-family: 'FonteLogo', sans-serif;
+	font-size: 30pt;
+	color: #606060;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+	padding: 0px;
+	margin-bottom: 0px;
+}
+
+header#cabecalho h2{
+	font-family: 'Titillium Web', sans-serif;
+	color: #888888;
+	font-size: 15pt;
+	padding: 0px;
+	margin-top: 0px;
+}
+
+/*Formatação de imagens com legendas*/
+
+figure.foto-legenda{
+	position: relative;
+	border: 8px solid white; /*borda = expessura | tipo | cor*/
+	box-shadow: 1px 1px 4px black; /* lateral | vertical | espalhamento | cor*/
+}
+
+figure.foto-legenda img{
+	width: 100%;
+	height: 100%;
+}
+
+figure.foto-legenda figcaption{ /*formatar legenda da foto*/
+	opacity: 0; /*esconde a legenda*/
+	position: absolute; /*vai ter uma posição dentro da borda branca*/
+	top: 0px;
+	background-color: rgba(0,0,0,0.4);
+	color: white;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	box-sizing: border-box; /*cria um box dentro da borda*/
+	transition: opacity 1s; /*parametro de efeito de transição para o hover e o tempo que vai levar*/
+
+}
+
+/*configurar para legenda aparecer quando o mouse passar por cima*/
+figure.foto-legenda:hover figcaption{
+	opacity: 1;
+}
+
+/*Formatação do menu*/
+
+nav#menu { /*para fazer com que o menu flutue, tem que fazer que o mesmo seja exibido como um bloco*/
+	display: block; /*bloco pode flutuar na tela - no caso abaixo, apenas que a lista flutue (sera utilizado posição absoluta*/
+
+}
+
+nav#menu ul{
+	list-style: none; /*retirando os marcadores*/
+	text-transform: uppercase; /*todas as letras ficam em maiusculo*/
+	position: absolute; /*diferença entre relativa e absoluta - se for relativa, sera apenas dentro do nav (ou contender) | se for absolute, pode ultrapassar este limite e ser em relação ao site*/
+	top: -20px; /*pois o site tem uma margem*/
+	left: 300px;
+}
+
+nav#menu li{
+	display: inline-block; /*faz com que o bloco seja exibido na mesma linha*/
+	background-color: #dddddd; /*aplicando cor de fundo no menu*/
+	padding: 10px; /*cria espaço dentro do bloco entre conteudo e bordas & tem o parametro margin - espaço fora da caixa (margem)*/
+	margin: 2px; /*o espaçamento entre os botoes do bloco será de 4px (2 de cada item)*/
+	-webkit-transition: background-color 1s;
+	-moz-transition: background-color 1s;
+	-o-transition: background-color 1s;
+	-ms-transition: background-color 1s;
+	transition: background-color 1s; /*configurar o background color - botão que mudara - e o tempo de transição || tem uma forma de funcionar em outros navegadores - acessando o site prefixr.com - gera o código necessário para compatibilidade em todos os navegadores*/
+}
+
+nav#menu li:hover {  /*criar um efeito quando mover mouse por cima do li - para criar a transição (nao disponivel em todos os navegadores, deve ser aplicado no li ^*/
+	background-color: #606060;
+	}
+
+nav#menu h1 { /*esconder a escrita de menu principal pois visualmente não terá utilidade*/
+	display: none; /*nao aparece visualmente, porem ele fica disponivel para os mecanismos de buscas*/
+}
+
+nav#menu a {
+	color: #000000;
+	text-decoration: none; /*retirar o sublinhado e decorações de texto*/
+}
+
+nav#menu a:hover {  /*faz com que o link mude de cor quando estiver ativo sob o mouse*/
+	color: #ffffff;
+} 
+
+section#corpo { 
+	display: block; /*para ser mostrado como um bloco*/
+	width: 500px;
+	float: left; /*fazer com que a section "flutue" do lado esquerdo - para executar o float, os objetos devem estar configurados para serem mostrados em blocos*/
+	border-right: 1px solid #606060; /*cor cinza ligeiramente discreto (by gustavo guanabara) */
+	padding-right: 20px; 
+}
+
+article#noticia-principal h2{
+	font-size: 13pt;
+	color: #606060;
+	background-color: #dddddd;
+	padding: 5px 0px 5px 10px;
+	margin: 10px 0px 10px 0px;
+}
+
+header#cabecalho-artigo h1 { /*formatação para o que esta no cabeçalho do artigo em header do section*/
+	font-family: 'FonteLogo', sans-serif;
+	font-size: 20pt;
+	color: #606060;
+	margin-bottom: 0px;
+	margin-top: 0px
+}
+
+.direita {     /*formatação de classe generica*/
+	text-align: right;
+}
+
+header#cabecalho-artigo h2 {
+	font-size: 13pt;
+	color: #cecece;
+	background-color: #ffffff;
+	margin: 0px;
+}
+
+header#cabecalho-artigo h3 {
+	font-size: 12px;
+	color: #606060;
+}
+
+table#tabelaspec {
+	border: 1px solid #606060;
+	border-spacing: 0px; /*indica espaço entre as células (conforme abaixo no td, foi criado tabela nas celulas) (0px - para remover este espaço)*/
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table#tabelaspec td {
+	border: 1px solid #606060; /*criar borda nas celulas, porem há um espaço entre as celulas*/
+	padding: 10px; /*mais espaço entre as células*/
+	text-align: center; /*2 parametros de alinhamento dentro de tabelas -> text-align e vertical-align*/
+	vertical-align: middle; /*top | bottom | middle*/
+}
+
+table#tabelaspec td.ce { /*formatação para todas as células que estiverem a esquerda*/
+	color: white;
+	background-color: #606060;
+	vertical-align: top;
+	font-weight: bold; /*colocado em negrito*/
+	text-align-last: right;
+}
+
+table#tabelaspec td.cd {  /*formatação para todas as células que estiverem a direita*/
+	background-color: #cecece;
+	text-align: left;
+}
+
+table#tabelaspec caption {
+	color: #888888;
+	font-size: 13pt;
+	font-weight: bolder;
+}
+
+table#tabelaspec caption span {
+	display: block; /*vai ser mostrado como um bloco flutuante e se desconectar do texto*/
+	float: right;
+	color: #000000;
+	font-size: 8pt;
+	margin-top: 10px; /*pois ele ficou muito acima da linha*/
+}
+
+
+aside#lateral {
+	display: block;
+	width: 350px;
+	float: right; /*fazer com que o aside "flutue" do lado direito*/
+	background-color: #dddddd;
+	padding: 10px;
+	margin-top: 10px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.5);
+}
+
+aside#lateral h1{
+	font-family: 'FonteLogo', sans-serif;
+	font-size: 20pt;
+	color: #606060;
+	margin-top: 0px;
+}
+
+aside#lateral h2{
+	background-color: #606060;
+	font-size: 13pt;
+	color: #ffffff;
+	padding: 10px;
+}
+
+footer#rodape { /*pode ser orientado a limpar a configuração do section e aside*/
+	clear: both; /* limpa/"corrige" resquicios da configuração float do aside e section  */
+	border-top: 1px solid #606060;
+}
+
+footer#rodape p {
+	text-align: center;
+}
+
+footer#rodape a {
+	color: #000000;
+	text-decoration: none;
+
+}
